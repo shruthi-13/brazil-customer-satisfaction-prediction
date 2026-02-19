@@ -110,6 +110,12 @@ brazil-customer-satisfaction-prediction
 
 
 ---
+## Sample Visualizations
+
+### Correlation Matrix
+![Correlation Matrix](screenshots/correlation_matrix.png)
+
+---
 
 ## Future Improvements
 
