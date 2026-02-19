@@ -104,10 +104,7 @@ brazil-customer-satisfaction-prediction
 ├── workflow/
 │   └── knime_workflow.knwf
 ├── screenshots/
-│   ├── correlation_matrix.png
-│   ├── decision_tree.png
-│   ├── random_forest.png
-│   └── gradient_boosting.png
+│   └── correlation_matrix.png
 └── README.md
 ```
 
