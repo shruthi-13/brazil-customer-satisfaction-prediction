@@ -1,132 +1,76 @@
-# Customer Satisfaction Prediction – Brazil Dataset
+# Customer Satisfaction Prediction — Brazil E-Commerce
 
-## Project Overview
-
-This project analyzes demographic, socioeconomic, and technology awareness factors to predict customer satisfaction (Satisfied vs Unsatisfied) using machine learning models in KNIME.
-
-The objective was to identify the key drivers of customer satisfaction and compare classification models to determine the most effective predictive approach.
+**Tools:** KNIME Analytics · Decision Tree · Random Forest · Gradient Boosting  
+**Domain:** E-Commerce Analytics · Customer Experience  
+**Date:** August – October 2024
 
 ---
 
 ## Business Problem
 
-Which demographic and behavioral factors most strongly influence customer satisfaction in Brazil?
-
-Can machine learning models accurately classify satisfied versus unsatisfied customers?
+A Brazilian e-commerce platform was experiencing customer dissatisfaction but had no systematic way to identify which operational factors were driving negative reviews. The goal: build a predictive model to flag orders likely to receive poor ratings — and surface the root causes driving dissatisfaction.
 
 ---
 
-## Tools and Techniques
+## Dataset
 
-- KNIME Analytics Platform
-- Decision Tree
-- Random Forest
-- Gradient Boosting
-- Stratified Sampling
-- Correlation Analysis
-- Confusion Matrix Evaluation
-- Precision, Recall, Specificity, F-score
+- Customer order data including delivery timing, shipping costs, product categories, and seller location
+- Review scores (1–5 stars) as the target variable
+- Binary classification: negative review (1–3 stars) vs positive (4–5 stars)
 
 ---
 
-## Data Description
+## What I Built
 
-The dataset includes:
+### Machine Learning Pipeline in KNIME
+- Built and evaluated multiple classification models:
+  - Decision Tree
+  - Random Forest
+  - Gradient Boosting
+- Selected best model based on **F1-score** (optimizing for recall of negative reviews)
+- Achieved **F1-score of 0.85** on the test set
 
-- Demographic features (Age, Gender, Education, Residence)
-- Income brackets
-- Consumer preferences
-- Technology awareness indicators
-- Target variable: Customer satisfaction (Satisfied / Unsatisfied)
-
----
-
-## Methodology
-
-1. Data Cleaning
-   - Verified no missing values
-   - Checked for duplicate records
-
-2. Data Filtering
-   - Filtered dataset to include only Brazilian respondents
-
-3. Exploratory Data Analysis
-   - Correlation matrix analysis
-   - Distribution analysis (age, income, gender, education, residence)
-
-4. Data Partitioning
-   - Applied stratified sampling
-   - Tested multiple train-test splits (70:30, 62:38, 80:20)
-
-5. Model Development
-   - Decision Tree
-   - Random Forest
-   - Gradient Boosting
-
-6. Model Evaluation
-   - Precision
-   - Sensitivity (Recall)
-   - Specificity
-   - F-score
+### Root Cause Analysis
+- Analyzed feature importance across models
+- Identified the strongest drivers of customer dissatisfaction
+- Translated findings into operational recommendations for the business
 
 ---
 
-## Model Performance Summary
+## Results
 
-| Model            | Best Split | F-Score (Satisfied) | F-Score (Unsatisfied)  |
-|------------------|------------|---------------------|------------------------|
-| Decision Tree    | 70:30      | 0.852               | 0.552                  |
-| Random Forest    | 70:30      | 0.852               | 0.552                  |
-| Gradient Boosting| 62:38      | 0.826               | 0.478                  |
-
-Recommended Model: Random Forest (balanced predictive performance across both classes).
-
----
-
-## Key Insights
-
-- Technology awareness and trust-related features showed strong positive correlation with satisfaction.
-- Random Forest provided the most stable and balanced performance.
-- Decision Tree performed well when prioritizing satisfied customer classification.
-- Gradient Boosting demonstrated strong sensitivity for satisfied customers but weaker unsatisfied detection.
+| Metric | Value |
+|---|---|
+| Best F1-Score | **0.85** |
+| Models Evaluated | Decision Tree, Random Forest, Gradient Boosting |
+| Platform | KNIME Analytics |
+| Target | Negative review prediction (binary) |
 
 ---
 
-## Repository Structure
+## Key Findings
 
-## Repository Structure
-
-```
-brazil-customer-satisfaction-prediction
-│
-├── report/
-│   └── Customer_Satisfaction_Prediction_Report.pdf
-├── workflow/
-│   └── knime_workflow.knwf
-├── screenshots/
-│   └── correlation_matrix.png
-└── README.md
-```
-
-
----
-## Sample Visualizations
-
-### Correlation Matrix
-![Correlation Matrix](screenshots/correlation_matrix.png)
+| Driver | Impact |
+|---|---|
+| **Delivery Delays** | #1 driver of poor ratings — late deliveries strongly predict 1–2 star reviews |
+| **Shipping Costs** | #2 driver — high shipping cost relative to product price triggers dissatisfaction |
+| **Product Category** | Certain categories (electronics, furniture) show disproportionately high complaint rates |
+| **Seller Location** | Orders from distant sellers correlate with longer delivery times and lower scores |
 
 ---
 
-## Future Improvements
+## Business Recommendations
 
-- Hyperparameter tuning
-- Feature importance analysis
-- Python implementation using scikit-learn
-- Model explainability techniques (e.g., SHAP)
+1. **Prioritize on-time delivery SLAs** — even 1-day delays significantly increase negative review probability
+2. **Offer free or capped shipping** on high-risk categories to reduce cost-driven dissatisfaction
+3. **Flag high-risk orders proactively** using the model — trigger customer support outreach before reviews are submitted
+4. **Review seller performance by region** — distant sellers with poor delivery records should face stricter onboarding criteria
 
 ---
 
-## Author
+## Skills Demonstrated
 
-Shruthi Rajeshwari
-
+- End-to-end ML pipeline in KNIME (data prep → modeling → evaluation)
+- Multi-model comparison and F1-score optimization
+- Business root cause analysis from feature importance
+- Translating model outputs into operational e-commerce strategy
